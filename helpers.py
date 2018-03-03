@@ -5,19 +5,19 @@ Description: This is a set of helper methods that can be used for a variety of p
 
 def get_keys(keyFileName, numberKeys = 8):
     """
-    This functions retrieves keys from a file.
-    :param keyFileName: This is the filename that is supposed to contain the keys.
-    :param numberKeys: This is the number of keys that are being requested for encryption.
-    :return: This is a bytes array that contains the keys.
+    This functions retrieves key_file from a file.
+    :param keyFileName: This is the filename that is supposed to contain the key_file.
+    :param numberKeys: This is the number of key_file that are being requested for encryption.
+    :return: This is a bytes array that contains the key_file.
     """
     keys = read_file(keyFileName)
 
     if len(keys) > numberKeys:
-        print("[WARNING] Found more than " + str(numberKeys) + " keys.")
-        print("[NOTICE] Using " + str(numberKeys) + " keys.")
+        print("[WARNING] Found more than " + str(numberKeys) + " key_file.")
+        print("[NOTICE] Using " + str(numberKeys) + " key_file.")
     elif len(keys) < numberKeys:
-        print("[WARNING] Found less than " + str(numberKeys) + " keys.")
-        print("[NOTICE] Using " + str(len(keys)) + " keys.")
+        print("[WARNING] Found less than " + str(numberKeys) + " key_file.")
+        print("[NOTICE] Using " + str(len(keys)) + " key_file.")
     elif len(keys) == 0:
         print("[ERROR] Key file found to be empty. Cannot continue.")
         exit(1)
@@ -25,13 +25,14 @@ def get_keys(keyFileName, numberKeys = 8):
     return keys[:numberKeys]
 
 
-def read_file(file):
+def read_file(file, debug=False):
     """
     This functions reads bytes arrays from the fiven file.
     :param file: This is the file that is to be read from.
     :return: This is the bytes array containing all the information from the file.
     """
-    print("[LOG] Reading file: " + file)
+    if debug:
+        print("[LOG] Reading file: " + file)
 
     try:
         f = open(file, "rb") #read bytes
@@ -44,14 +45,15 @@ def read_file(file):
     return retStr
 
 
-def write_file(file, string):
+def write_file(file, string, debug=False):
     """
     This functions writes bytes array back to a file.
     :param file: This is the file name that is to be written to.
     :param string: This is the information that is to be written to the file.
     :return: Nothing useful.
     """
-    print("[LOG] Writing file: " + file)
+    if debug:
+        print("[LOG] Writing file: " + file)
 
     try:
         f = open(file, "wb") #write bytes
