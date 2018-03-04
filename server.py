@@ -1,6 +1,5 @@
 import socket
 import sys
-from helpers import get_keys
 from encrypt import encrypt
 from decrypt import decrypt
 from collections import deque
@@ -11,10 +10,9 @@ if len(sys.argv) != 2:
     exit(1)
 
 que = deque(maxlen=5)
-key_dic = {"127.0.0.1":"aeiouaei"}
+key_dic = {"127.0.0.1":"aeiouaei","10.10.4.1":"abcdefgh","10.10.2.2":"bcdefghi","10.10.3.2":"cdefghij","10.10.4.2":"defghijk","10.10.5.2":"efghijkl","10.10.6.2":"fghijklm"}
 
 udp_port = int(sys.argv[1])
-keys = get_keys("key_file.txt")
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
