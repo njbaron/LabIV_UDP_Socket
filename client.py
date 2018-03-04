@@ -24,9 +24,9 @@ try:
         try:
             data, address = sock.recvfrom(4096)
         except:
-            print("[LOG] Reciever Timed Out")
+            print("[WARNING] Receiver Timed Out.")
             exit(0)
-        print("[LOG] Response Timed Out")
+        print("[LOG] Response received.")
         print(str(decrypt(keys, data))[12:-2])
 finally:
     sock.close()
