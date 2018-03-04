@@ -22,7 +22,7 @@ try:
     while True:
         print("[LOG] Waiting for response.")
         try:
-            data, address = sock.recvfrom(250)
+            data, address = sock.recvfrom(4096)
         except:
             print("[LOG] Reciever Timed Out")
             exit(0)

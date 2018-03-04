@@ -15,13 +15,12 @@ key_dic = {"127.0.0.1":"aeiouaei","10.10.4.1":"abcdefgh","10.10.2.2":"bcdefghi",
 udp_port = int(sys.argv[1])
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-
 sock.bind(('localhost', udp_port))
 
 try:
     while True:
         print("[LOG] Waiting to receive.")
-        data, address = sock.recvfrom(250)
+        data, address = sock.recvfrom(4096s)
         print("[LOG] Message Received.")
         quedata = bytearray(datetime.datetime.now().strftime("%H:%M:%S.%f") + " " + str(address[0]) + " ", "utf-8")
         key = bytes(key_dic[str(address[0])], "utf-8")
