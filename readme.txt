@@ -1,5 +1,5 @@
-ECE 456 UDP Socket Server/ Client Lab4
-by Nick Baron 830278807
+UDP Socket Server/ Client Lab4
+by Nick Baron
 
 You need to have python3!
 
